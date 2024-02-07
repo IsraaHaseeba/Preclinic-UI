@@ -82,7 +82,7 @@ export class LookupsComponent {
   isCodeExist: boolean = false;
   @ViewChild('closeLookupModalBtn') closeLookupModalBtn: ElementRef<any> | undefined;
   @ViewChild('closeCategoryModalBtn') closeCategoryModalBtn: ElementRef<any> | undefined;
-
+  isAdd: boolean = true;
 
   constructor() {
     this.dataSource.data = this.allLookups;
