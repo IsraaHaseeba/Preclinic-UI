@@ -1,6 +1,6 @@
 <div class="page-wrapper">
     <div class="content">
-    
+
         <!-- Page Header -->
         <div class="page-header">
             <div class="row">
@@ -22,87 +22,167 @@
                     </div>
                     <div class="doctor-search-blk">
                         <div class="top-nav-search table-search-blk">
-                                <input class="form-control" placeholder="Search here" [(ngModel)]="categoriesSearchText">
-                                <a class="btn"><img src="assets/img/icons/search-normal.svg" alt=""></a>
+                            <input class="form-control" placeholder="Search here" [(ngModel)]="categoriesSearchText">
+                            <a class="btn"><img src="assets/img/icons/search-normal.svg" alt=""></a>
                         </div>
                         <div class="add-group">
-                            <a href="javascript:;" class="btn btn-primary add-pluss ms-2"><img src="assets/img/icons/plus.svg" alt=""></a>
-                            <a href="javascript:;" class="btn btn-primary doctor-refresh ms-2"><img src="assets/img/icons/re-fresh.svg" alt=""></a>
+                            <a href="javascript:;" data-bs-target="#categoriesModal" data-bs-toggle="modal"
+                                class="btn btn-primary add-pluss ms-2"><img src="assets/img/icons/plus.svg" alt=""></a>
+                            <a href="javascript:;" class="btn btn-primary doctor-refresh ms-2"><img
+                                    src="assets/img/icons/re-fresh.svg" alt=""></a>
                         </div>
                     </div>
                     <div class="list-box pt-2">
-                        <div *ngFor="let category of categories | filterPipe:categoriesSearchText:categoriesFilterKeys" class="list-item d-flex" [class.active]="selectedCategory && selectedCategory.id == category.id">
-                            <span (click)="selectCategory(category)" class="cursor-pointer flex-grow-1">{{category.code}}</span>
-                            <a class="btn"><img src="assets/img/icons/edit.svg" alt="img" class="img-icon"></a>
+                        <div *ngFor="let category of categories | filterPipe:categoriesSearchText:categoriesFilterKeys"
+                            class="list-item d-flex"
+                            [class.active]="selectedCategory && selectedCategory.id == category.id">
+                            <span (click)="selectCategory(category)"
+                                class="cursor-pointer flex-grow-1">{{category.code}}</span>
+                            <a href="javascript:;" data-bs-target="#categoriesModal" data-bs-toggle="modal" (click)="fillModalInfo(modalEntities.Category, category)" class="btn"><img src="assets/img/icons/edit.svg" alt="img" class="img-icon"></a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-8">
-                <div class="col">
-                    <div class="row-xl-4 card p-3">
-                        <div class="doctor-search-blk">
-                            <div class="top-nav-search table-search-blk">
-                                    <input class="form-control" placeholder="Search here" [(ngModel)]="lookupsSearchText">
-                                    <a class="btn"><img src="assets/img/icons/search-normal.svg" alt=""></a>
-                            </div>
-                            <div class="add-group flex-grow-1">
-                                <a href="javascript:;" class="btn btn-primary add-pluss ms-2"><img src="assets/img/icons/plus.svg" alt=""></a>
-                                <a href="javascript:;" class="btn btn-primary doctor-refresh ms-2"><img src="assets/img/icons/re-fresh.svg" alt=""></a>
-                            </div>
-                            <div>
-                                <mat-radio-group [(ngModel)]="isActive">
-                                    <mat-radio-button [value]="true">Active</mat-radio-button>
-                                    <mat-radio-button [value]="false">In Active</mat-radio-button>
-                                </mat-radio-group>
-                            </div>
-                            
-                        </div>
+                <div class="row-xl-8 card px-3">
+                    <div class="card-header">
+                        <h4 class="card-title">Lookups - {{selectedCategory?.code}} </h4>
                     </div>
-                    <div class="row-xl-8 card px-3">
-                        <div class="card-header">
-                            <h4 class="card-title">Lookups - {{selectedCategory?.code}} </h4>
+                    <div class="doctor-search-blk ">
+                        <div class="top-nav-search table-search-blk">
+                            <input class="form-control" placeholder="Search here" [(ngModel)]="lookupsSearchText">
+                            <a class="btn"><img src="assets/img/icons/search-normal.svg" alt=""></a>
                         </div>
-                        <!-- /Table Header -->
-                        <div class="table-responsive">
-                            <table matSort (matSortChange)="sortData($event)" class="table border-0 custom-table comman-table datatable mb-0">
-                                <thead>
-                                    <tr>
-                                        <th mat-sort-header="checkbox">
-                                            <div class="form-check check-tables">
-                                                <input class="form-check-input" type="checkbox" value="something">
-                                            </div>
-                                        </th>
-                                        <th [mat-sort-header]="col.key" *ngFor="let col of displayedColumns">{{col.name}}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let lookup of categoryLookups | filterPipe:lookupsSearchText:lookupsFilterKeys">
-                                        <td>
-                                            <div class="form-check check-tables">
-                                                <input class="form-check-input" type="checkbox" value="something">
-                                            </div>
-                                        </td>
-                                        <td>{{lookup.categoryName}}</td>
-                                        <td>{{lookup.enName}}</td>
-                                        <td>{{lookup.arName}}</td>
-                                        <td>{{lookup.code}}</td>
-                                    </tr>
-                                    <tr class="mat-row" *ngIf="!categoryLookups.length">
-                                        <td class="mat-cell" [colSpan]="5">
-                                            <span class="empty-table-message">Please be sure you select category that has a code value</span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                          
+                        <div class="add-group flex-grow-1">
+                            <a href="#lookupsModal" data-bs-toggle="modal"
+                                class="btn btn-primary add-pluss ms-2"><img src="assets/img/icons/plus.svg" alt=""></a>
+                            <a href="javascript:;" class="btn btn-primary doctor-refresh ms-2"><img
+                                    src="assets/img/icons/re-fresh.svg" alt=""></a>
                         </div>
+                        <div>
+                            <mat-radio-group [(ngModel)]="isActive">
+                                <mat-radio-button [value]="true">Active</mat-radio-button>
+                                <mat-radio-button [value]="false">In Active</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+
+                    </div>
+                    <!-- /Table Header -->
+                    <div class="table-responsive pt-2">
+                        <table matSort (matSortChange)="sortData($event)"
+                            class="table border-0 custom-table comman-table datatable mb-0">
+                            <thead>
+                                <tr>
+                                    <th mat-sort-header="checkbox">
+                                        <div class="form-check check-tables">
+                                            <input class="form-check-input" type="checkbox" value="something">
+                                        </div>
+                                    </th>
+                                    <th [mat-sort-header]="col.key" *ngFor="let col of displayedColumns">{{col.name}}
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    *ngFor="let lookup of categoryLookups | filterPipe:lookupsSearchText:lookupsFilterKeys">
+                                    <td>
+                                        <div class="form-check check-tables">
+                                            <input class="form-check-input" type="checkbox" value="something">
+                                        </div>
+                                    </td>
+                                    <td>{{lookup.categoryName}}</td>
+                                    <td>{{lookup.enName}}</td>
+                                    <td>{{lookup.arName}}</td>
+                                    <td>{{lookup.code}}</td>
+                                    <td><a href="javascript:;" data-bs-target="#lookupsModal" data-bs-toggle="modal" (click)="fillModalInfo(modalEntities.Lookup, lookup)" class="btn"><img src="assets/img/icons/edit.svg" alt="img" class="img-icon"></a>
+                                    </td>
+                                </tr>
+                                <tr class="mat-row" *ngIf="!categoryLookups.length">
+                                    <td class="mat-cell" [colSpan]="5">
+                                        <span class="empty-table-message">Please be sure you select category that has a
+                                            code value</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </div>
                 </div>
-                
-              
             </div>
         </div>
-        
+
+    </div>
+</div>
+
+<div id="categoriesModal" tabindex="-1" class="modal fade" role="dialog" (hidden.bs.modal)="reset()">
+    <div class="modal-dialog">
+        <div class="modal-content modal-md">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Category</h4>
+            </div>
+            <div class="modal-body">
+                <form #categoryForm="ngForm">
+                    <div class="form-group local-forms">
+                        <label for="code">Code <span class="text-danger">*</span></label>
+                        <input required [(ngModel)]="category.code" name="code" id="code" class="form-control" type="text">
+                    </div>
+                    <div class="form-group local-forms">
+                        <label for="enName">En Name <span class="text-danger">*</span></label>
+                        <input required [(ngModel)]="category.enName" name="enName" id="enName" class="form-control" type="text">
+                    </div>
+                    <div class="form-group local-forms">
+                        <label for="arName">Ar Name <span class="text-danger">*</span></label>
+                        <input required [(ngModel)]="category.arName" name="arName" id="arName" class="form-control" type="text">
+                    </div>
+                    <div class="m-t-20 text-end">
+                        <small *ngIf="isCodeExist" class="text-danger">*Code exists or invalid.</small>
+                        <button #closeCategoryModalBtn type="button" class="btn btn-light cancel-form me-2" data-bs-dismiss="modal">Close</button>
+                        <button (click)="onSave(categoryForm, modalEntities.Category)" type="button" class="btn btn-primary submit-form">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="lookupsModal" tabindex="-1" class="modal fade" role="dialog" (hidden.bs.modal)="reset()">
+    <div class="modal-dialog">
+        <div class="modal-content modal-md">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Lookup</h4>
+            </div>
+            <div class="modal-body">
+                <form #lookupForm="ngForm">
+                    <div class="form-group">
+                        <div class="form-group local-forms">
+                            <label for="category">Category <span class="text-danger">*</span></label>
+                            <mat-select required name="category" id="category" [(ngModel)]="lookup.categoryId"
+                                class="form-control select" placeholder="Select Category">
+                                <mat-option *ngFor="let category of categories" [value]="category.id">
+                                    {{category.code}}
+                                </mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+                    <div class="form-group local-forms">
+                        <label for="enName">En Name <span class="text-danger">*</span></label>
+                        <input required [(ngModel)]="lookup.enName" name="enName" id="enName" class="form-control" type="text">
+                    </div>
+                    <div class="form-group local-forms">
+                        <label for="arName">Ar Name <span class="text-danger">*</span></label>
+                        <input required [(ngModel)]="lookup.arName" name="arName" id="arName" class="form-control" type="text">
+                    </div>
+                    <div class="form-group local-forms">
+                        <label for="lookupName">Lookup Name <span class="text-danger">*</span></label>
+                        <input required [(ngModel)]="lookup.code" name="lookupName" id="lookupName" class="form-control" type="text">
+                    </div>
+                    <div class="m-t-20 text-end">
+                        <button #closeLookupModalBtn type="button" class="btn btn-light cancel-form me-2" data-bs-dismiss="modal">Close</button>
+                        <button (click)="onSave(lookupForm, modalEntities.Lookup)" type="button" class="btn btn-primary submit-form">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>

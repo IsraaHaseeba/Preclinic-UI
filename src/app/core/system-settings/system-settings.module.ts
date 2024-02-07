@@ -7,7 +7,7 @@ import { LookupsComponent } from './lookups/lookups.component';
 import {MatListModule} from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from 'src/app/shared/shared.module';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MatListModule,
     MatButtonModule,
     SharedModule,
-    MatRadioModule
+    MatRadioModule,
   ]
 })
 export class SystemSettingsModule { }

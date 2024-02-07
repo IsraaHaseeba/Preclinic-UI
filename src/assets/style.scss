@@ -603,6 +603,9 @@ textarea.form-control {
     background: #ff0000;
   }
 }
+input.ng-touched.ng-invalid, mat-select.ng-touched.ng-invalid {
+  border: 1px solid red;
+}
 table.table {
   td {
     border-color: $border-color_2;

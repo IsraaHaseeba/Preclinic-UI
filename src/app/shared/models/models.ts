@@ -110,18 +110,18 @@ export interface doctorlist {
   img: string;
 }
 export interface lookupList {
-  id: number,
-  categoryName: string,
-  enName: string,
-  arName: string,
-  code: string,
-  categoryId: number
+  id?: number,
+  categoryName?: string,
+  enName?: string,
+  arName?: string,
+  code?: string,
+  categoryId?: number
 }
 export interface categoryList {
-  id: number,
-  code: string,
-  enName: string,
-  arName: string
+  id?: number,
+  code?: string,
+  enName?: string,
+  arName?: string
 }
 export interface schedule {
   doctorName: string;

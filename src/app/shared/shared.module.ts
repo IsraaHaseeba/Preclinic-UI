@@ -50,8 +50,8 @@ import { MatTableModule } from '@angular/material/table';
     MatSortModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTableModule
-    
+    MatTableModule,
+    FormsModule
     
   ],
   exports: [
@@ -69,7 +69,8 @@ import { MatTableModule } from '@angular/material/table';
     FormsModule,
     ReactiveFormsModule,
     FilterPipe,
-    MatTableModule
+    MatTableModule,
+    FormsModule
 
   ],
   providers: [

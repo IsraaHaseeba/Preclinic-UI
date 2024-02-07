@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { categoryList, lookupList } from 'src/app/shared/models/models';
 import { routes } from 'src/app/shared/routes/routes';
+
+export enum ModalEntities {Lookup, Category}
 
 @Component({
   selector: 'app-lookups',
@@ -17,7 +20,7 @@ export class LookupsComponent {
   [
     {key: 'categoryName', name: 'Category Name'}, 
     {key: 'enName', name: 'En Name'}, 
-    {key:'arName', name: 'Ar Name'},
+    {key: 'arName', name: 'Ar Name'},
     {key: 'code', name: 'Code'}
   ];
   lookupsFilterKeys = this.displayedColumns.map(c => c.key);
@@ -72,6 +75,14 @@ export class LookupsComponent {
     }
   ];
   selectedCategory?: categoryList;
+  lookup: lookupList = {};
+  category: categoryList = {};
+  modalEntities = ModalEntities;
+  isFormValid: boolean = true;
+  isCodeExist: boolean = false;
+  @ViewChild('closeLookupModalBtn') closeLookupModalBtn: ElementRef<any> | undefined;
+  @ViewChild('closeCategoryModalBtn') closeCategoryModalBtn: ElementRef<any> | undefined;
+
 
   constructor() {
     this.dataSource.data = this.allLookups;
@@ -91,8 +102,56 @@ export class LookupsComponent {
     }
   }
 
-  selectCategory(category: categoryList) {
-    this.selectedCategory = category;
-    this.categoryLookups = this.dataSource.data.filter(l => l.categoryId == category.id);
+  selectCategory(category?: categoryList) {
+    if(category) {
+      this.selectedCategory = category;
+      this.lookup.categoryId = category.id;
+      this.categoryLookups = this.dataSource.data.filter(l => l.categoryId == category.id);
+    }
   }
+
+  fillModalInfo(entity: number, object: any) {
+    if(entity == ModalEntities.Lookup) {
+      this.lookup = object;
+    }
+    else if(entity == ModalEntities.Category) {
+      this.category = object;
+    }
+  }
+
+  onSave(form: NgForm, entity: number) {
+    if (form.invalid) {
+      this.isFormValid = false;
+      form.form.markAllAsTouched();
+      return;
+    }
+
+    if (entity == ModalEntities.Lookup) {
+      this.allLookups.push(this.lookup);
+      this.selectCategory(this.selectedCategory);
+      this.closeLookupModalBtn?.nativeElement.click();
+    }
+    else if (entity == ModalEntities.Category) {
+      if(!this.checkIfCodeExists(this.category.code)){
+        this.categories.push(this.category);
+        this.closeCategoryModalBtn?.nativeElement.click();
+        this.isCodeExist = false;
+      } else {
+        this.isCodeExist = true; 
+      }
+    }
+  }
+
+  checkIfCodeExists(code?: string) {
+    if(code) {
+
+    }
+    return false;
+  }
+
+  reset() {
+    this.category = {};
+    this.lookup = {};
+  }
+  
 }
