@@ -241,6 +241,11 @@ export class DataService {
               menuValue: 'Users',
               route: routes.users,
               base: routes.users
+            },
+            {
+              menuValue: 'Company Profile',
+              route: routes.companyProfile,
+              base: routes.companyProfile
             }
           ],
         },

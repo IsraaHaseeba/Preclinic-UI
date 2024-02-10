@@ -1,0 +1,132 @@
+<div class="page-wrapper">
+    <div class="content">
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="routes.companyProfile">System Settings</a></li>
+                        <li class="breadcrumb-item"><i class="feather icon-chevron-right"></i></li>
+                        <li class="breadcrumb-item active">Company Info</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Header -->
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <form #form="ngForm">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-heading">
+                                        <h4>Basic Information</h4>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-group local-forms">
+                                        <label for="companyAr">Company Ar<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.companyAr" class="form-control" type="text" name="companyAr" id="companyAr">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="telephone2">Telephone 2</label>
+                                        <input [(ngModel)]="company.telephone2" class="form-control" type="text" name="telephone2" id="telephone2">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="addressAr">Address Ar<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.addressAr" class="form-control" type="text" name="addressAr" id="addressAr">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="website">Web Site</label>
+                                        <input [(ngModel)]="company.website" class="form-control" type="text" name="website" id="website">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="incomeTax">Income Tax<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.incomeTax" class="form-control" type="text" name="incomeTax" id="incomeTax">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="twitterLink">Twitter Link</label>
+                                        <input [(ngModel)]="company.twitterLink" class="form-control" type="text" name="twitterLink" id="twitterLink">
+                                    </div>
+                                    <div class="form-group isActiveFormGroup">
+                                        <input required [(ngModel)]="company.isActive" type="checkbox" name="isActive" id="isActive">
+                                        <label class="isActiveLabel" for="isActive">Is Active<span class="login-danger">*</span></label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-group local-forms">
+                                        <label for="companyEn">Company En<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.companyEn" class="form-control" type="text" name="companyEn" id="companyEn">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="fax1">Fax 1<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.fax1" class="form-control" type="text" name="fax1" id="fax1">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="addressEn">Address En<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.addressEn" class="form-control" type="text" name="addressEn" id="addressEn">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="licenseIdNo">License ID No<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.licenseIdNo" class="form-control" type="text" name="licenseIdNo" id="licenseIdNo">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="gmailLink">Gmail Link<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.gmailLink" class="form-control" type="text" name="gmailLink" id="gmailLink">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="pintrestLink">Pintrest Link</label>
+                                        <input [(ngModel)]="company.pintrestLink" class="form-control" type="text" name="pintrestLink" id="pintrestLink">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-group local-forms">
+                                        <label for="telephone1">Telephone 1<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.telephone1" class="form-control" type="text" name="telephone1" id="telephone1">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="fax2">Fax 2</label>
+                                        <input [(ngModel)]="company.fax2" class="form-control" type="text" name="fax2" id="fax2">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="email">Email<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.email" class="form-control" type="text" name="email" id="email">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="currency">Currency<span class="login-danger">*</span></label>
+                                        <mat-select required name="currency" id="currency" [(ngModel)]="company.currency" class="form-control select"
+                                            placeholder="Select Currency">
+                                            <mat-option *ngFor="let currency of currencies" [value]="currency.id">
+                                                {{currency.name}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="facebookLink">Facebook Link</label>
+                                        <input [(ngModel)]="company.facebookLink" class="form-control" type="text" name="facebookLink" id="facebookLink">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="linkedInLink">LinkedIn Link</label>
+                                        <input [(ngModel)]="company.linkedInLink" class="form-control" type="text" name="linkedInLink" id="linkedInLink">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="doctor-submit text-end">
+                                        <button (click)="onSave(form)" type="button"
+                                            class="btn btn-primary submit-form me-2">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

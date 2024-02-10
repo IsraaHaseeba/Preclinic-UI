@@ -133,6 +133,27 @@ export interface userDetails {
   username?: string, 
   birthDate?: Date
 }
+export interface companyInfo {
+  companyAr?: string,
+  companyEn?: string,
+  telephone1?: string,
+  telephone2?: string,
+  fax1?: string,
+  fax2?: string,
+  addressAr?: string,
+  addressEn?: string,
+  email?: string,
+  website?: string,
+  licenseIdNo?: string,
+  currency?: string,
+  incomeTax?: string, 
+  gmailLink?: string,
+  facebookLink?: string,
+  twitterLink?: string,
+  pintrestLink?: string,
+  linkedInLink?: string,
+  isActive?: boolean
+}
 export interface userList {
   id?: number,
   name?: string,

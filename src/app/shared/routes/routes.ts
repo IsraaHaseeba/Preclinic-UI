@@ -134,6 +134,9 @@ export class routes {
   public static get addEditUser(): string {
     return this.baseUrl + '/system-settings/user/add-edit-user';
   }
+  public static get companyProfile(): string {
+    return this.baseUrl + '/system-settings/company-profile';
+  }
   public static get doctorDashboard(): string {
     return this.baseUrl + '/dashboard/doctor-dashboard';
   }

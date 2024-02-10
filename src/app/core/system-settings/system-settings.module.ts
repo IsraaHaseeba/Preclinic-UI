@@ -8,11 +8,13 @@ import {MatListModule} from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatRadioModule } from '@angular/material/radio';
+import { CompanyProfileComponent } from './company-profile/company-profile.component';
 
 @NgModule({
   declarations: [
     SystemSettingsComponent,
     LookupsComponent,
+    CompanyProfileComponent,
   ],
   imports: [
     CommonModule,
