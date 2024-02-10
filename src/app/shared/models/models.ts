@@ -123,6 +123,23 @@ export interface categoryList {
   enName?: string,
   arName?: string
 }
+export interface userDetails {
+  id?: number,
+  name?: string,
+  mobileNumber?: string,
+  email?: string,
+  password?: string,
+  identityNumber?: string,
+  username?: string, 
+  birthDate?: Date
+}
+export interface userList {
+  id?: number,
+  name?: string,
+  mobileNumber?: string,
+  identityNumber?: string,
+  birthDate?: Date
+}
 export interface schedule {
   doctorName: string;
   department: string;

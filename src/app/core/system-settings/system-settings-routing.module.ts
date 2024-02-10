@@ -6,7 +6,12 @@ import { LookupsComponent } from './lookups/lookups.component';
 const routes: Routes = [{
   path: '', component: SystemSettingsComponent,
   children: [
-    {path: "lookups", component: LookupsComponent}
+    {path: "lookups", component: LookupsComponent},
+    {
+      path: 'user',
+      loadChildren: () =>
+        import('./user/user.module').then((m) => m.UserModule),
+    },
   ]
 }];
 

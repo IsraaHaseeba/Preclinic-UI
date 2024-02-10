@@ -128,6 +128,12 @@ export class routes {
   public static get lookups(): string {
     return this.baseUrl + '/system-settings/lookups';
   }
+  public static get users(): string {
+    return this.baseUrl + '/system-settings/user/users-list';
+  }
+  public static get addEditUser(): string {
+    return this.baseUrl + '/system-settings/user/add-edit-user';
+  }
   public static get doctorDashboard(): string {
     return this.baseUrl + '/dashboard/doctor-dashboard';
   }

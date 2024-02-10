@@ -236,6 +236,11 @@ export class DataService {
               menuValue: 'Lookups',
               route: routes.lookups,
               base: routes.lookups,
+            },
+            {
+              menuValue: 'Users',
+              route: routes.users,
+              base: routes.users
             }
           ],
         },

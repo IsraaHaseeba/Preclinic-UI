@@ -120,9 +120,10 @@
         <div class="modal-content modal-md">
             <div class="modal-header">
                 <h4 class="modal-title">{{isAdd ? 'Add' : 'Edit'}} Category</h4>
+                <button type="button" class="btn btn-close cancel-form me-2" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <form #categoryForm="ngForm">
+                <form #categoryForm="ngForm" class="p-5">
                     <div class="form-group local-forms">
                         <label for="code">Code <span class="text-danger">*</span></label>
                         <input required [(ngModel)]="category.code" name="code" id="code" class="form-control" type="text">
@@ -151,9 +152,10 @@
         <div class="modal-content modal-md">
             <div class="modal-header">
                 <h4 class="modal-title">{{isAdd ? 'Add' : 'Edit'}} Lookup</h4>
+                <button type="button" class="btn btn-close cancel-form me-2" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <form #lookupForm="ngForm">
+                <form #lookupForm="ngForm" class="p-5">
                     <div class="form-group">
                         <div class="form-group local-forms">
                             <label for="category">Category <span class="text-danger">*</span></label>
