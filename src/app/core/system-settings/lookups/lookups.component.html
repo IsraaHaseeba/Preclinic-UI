@@ -114,7 +114,7 @@
                 <button type="button" class="btn btn-close cancel-form me-2" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <form #categoryForm="ngForm" class="p-5">
+                <form #categoryForm="ngForm">
                     <div class="form-group local-forms">
                         <label for="code">Code <span class="text-danger">*</span></label>
                         <input required [(ngModel)]="category.code" name="code" id="code" class="form-control" type="text">
@@ -146,7 +146,7 @@
                 <button type="button" class="btn btn-close cancel-form me-2" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <form #lookupForm="ngForm" class="p-5">
+                <form #lookupForm="ngForm">
                     <div class="form-group">
                         <div class="form-group local-forms">
                             <label for="category">Category <span class="text-danger">*</span></label>
