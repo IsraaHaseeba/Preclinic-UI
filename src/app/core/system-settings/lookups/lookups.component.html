@@ -73,24 +73,15 @@
                             class="table border-0 custom-table comman-table datatable mb-0">
                             <thead>
                                 <tr>
-                                    <th mat-sort-header="checkbox">
-                                        <div class="form-check check-tables">
-                                            <input class="form-check-input" type="checkbox" value="something">
-                                        </div>
-                                    </th>
-                                    <th [mat-sort-header]="col.key" *ngFor="let col of displayedColumns">{{col.name}}
-                                    </th>
+                                    <th>#</th>
+                                    <th [mat-sort-header]="col.key" *ngFor="let col of displayedColumns">{{col.name}}</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr
-                                    *ngFor="let lookup of categoryLookups | filterPipe:lookupsSearchText:lookupsFilterKeys">
-                                    <td>
-                                        <div class="form-check check-tables">
-                                            <input class="form-check-input" type="checkbox" value="something">
-                                        </div>
-                                    </td>
+                                    *ngFor="let lookup of categoryLookups | filterPipe:lookupsSearchText:lookupsFilterKeys; let index = index">
+                                    <td>{{index + 1}}</td>
                                     <td>{{lookup.categoryName}}</td>
                                     <td>{{lookup.enName}}</td>
                                     <td>{{lookup.arName}}</td>
