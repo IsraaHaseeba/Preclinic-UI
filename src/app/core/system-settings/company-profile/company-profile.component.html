@@ -26,15 +26,18 @@
                                         <h4>Basic Information</h4>
                                     </div>
                                 </div>
-
                                 <div class="col-sm-4">
                                     <div class="form-group local-forms">
-                                        <label for="companyAr">Company Ar<span class="login-danger">*</span></label>
-                                        <input required [(ngModel)]="company.companyAr" class="form-control" type="text" name="companyAr" id="companyAr">
+                                        <label for="nameAr">Company Name Ar<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.nameAr" class="form-control" type="text" name="nameAr" id="nameAr">
                                     </div>
                                     <div class="form-group local-forms">
-                                        <label for="telephone2">Telephone 2</label>
-                                        <input [(ngModel)]="company.telephone2" class="form-control" type="text" name="telephone2" id="telephone2">
+                                        <label for="tel1">Telephone 1<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.tel1" class="form-control" type="text" name="tel1" id="tel1">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="fax2">Fax 2</label>
+                                        <input [(ngModel)]="company.fax2" class="form-control" type="text" name="fax2" id="fax2">
                                     </div>
                                     <div class="form-group local-forms">
                                         <label for="addressAr">Address Ar<span class="login-danger">*</span></label>
@@ -45,54 +48,70 @@
                                         <input [(ngModel)]="company.website" class="form-control" type="text" name="website" id="website">
                                     </div>
                                     <div class="form-group local-forms">
-                                        <label for="incomeTax">Income Tax<span class="login-danger">*</span></label>
-                                        <input required [(ngModel)]="company.incomeTax" class="form-control" type="text" name="incomeTax" id="incomeTax">
+                                        <label for="incomeTax">Income Tax (%)<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.incomeTax" class="form-control" type="number" name="incomeTax" id="incomeTax">
                                     </div>
                                     <div class="form-group local-forms">
-                                        <label for="twitterLink">Twitter Link</label>
-                                        <input [(ngModel)]="company.twitterLink" class="form-control" type="text" name="twitterLink" id="twitterLink">
+                                        <label for="location">Location</label>
+                                        <input [(ngModel)]="company.location" class="form-control" type="text" name="location" id="location">
                                     </div>
-                                    <div class="form-group isActiveFormGroup">
-                                        <input required [(ngModel)]="company.isActive" type="checkbox" name="isActive" id="isActive">
-                                        <label class="isActiveLabel" for="isActive">Is Active<span class="login-danger">*</span></label>
+                                    <div class="form-group local-forms">
+                                        <label for="insta">Instagram</label>
+                                        <input [(ngModel)]="company.insta" class="form-control" type="text" name="insta" id="insta">
                                     </div>
-                                </div>
+                                </div> 
 
                                 <div class="col-sm-4">
                                     <div class="form-group local-forms">
-                                        <label for="companyEn">Company En<span class="login-danger">*</span></label>
-                                        <input required [(ngModel)]="company.companyEn" class="form-control" type="text" name="companyEn" id="companyEn">
+                                        <label for="nameEn">Company Name En<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.nameEn" class="form-control" type="text" name="nameEn" id="nameEn">
                                     </div>
                                     <div class="form-group local-forms">
-                                        <label for="fax1">Fax 1<span class="login-danger">*</span></label>
-                                        <input required [(ngModel)]="company.fax1" class="form-control" type="text" name="fax1" id="fax1">
+                                        <label for="tel2">Telephone 2</label>
+                                        <input [(ngModel)]="company.tel2" class="form-control" type="text" name="tel2" id="tel2">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="phone1">Phone 1<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.phone1" class="form-control" type="text" name="phone1" id="phone1">
                                     </div>
                                     <div class="form-group local-forms">
                                         <label for="addressEn">Address En<span class="login-danger">*</span></label>
                                         <input required [(ngModel)]="company.addressEn" class="form-control" type="text" name="addressEn" id="addressEn">
                                     </div>
                                     <div class="form-group local-forms">
-                                        <label for="licenseIdNo">License ID No<span class="login-danger">*</span></label>
-                                        <input required [(ngModel)]="company.licenseIdNo" class="form-control" type="text" name="licenseIdNo" id="licenseIdNo">
+                                        <label for="licenseNo">License ID No<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.licenseNo" class="form-control" type="text" name="licenseNo" id="licenseNo">
                                     </div>
                                     <div class="form-group local-forms">
-                                        <label for="gmailLink">Gmail Link<span class="login-danger">*</span></label>
-                                        <input required [(ngModel)]="company.gmailLink" class="form-control" type="text" name="gmailLink" id="gmailLink">
+                                        <label for="contactusInfo">Contact Info</label>
+                                        <input [(ngModel)]="company.contactusInfo" class="form-control" type="text" name="contactusInfo" id="contactusInfo">
                                     </div>
                                     <div class="form-group local-forms">
-                                        <label for="pintrestLink">Pintrest Link</label>
-                                        <input [(ngModel)]="company.pintrestLink" class="form-control" type="text" name="pintrestLink" id="pintrestLink">
+                                        <label for="youtube">Youtube</label>
+                                        <input [(ngModel)]="company.youtube" class="form-control" type="text" name="youtube" id="youtube">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="boradcast">Boradcast</label>
+                                        <input [(ngModel)]="company.boradcast" class="form-control" type="text" name="boradcast" id="boradcast">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-4">
                                     <div class="form-group local-forms">
-                                        <label for="telephone1">Telephone 1<span class="login-danger">*</span></label>
-                                        <input required [(ngModel)]="company.telephone1" class="form-control" type="text" name="telephone1" id="telephone1">
+                                        <label for="nameHe">Company Name He</label>
+                                        <input [(ngModel)]="company.nameHe" class="form-control" type="text" name="nameHe" id="nameHe">
                                     </div>
                                     <div class="form-group local-forms">
-                                        <label for="fax2">Fax 2</label>
-                                        <input [(ngModel)]="company.fax2" class="form-control" type="text" name="fax2" id="fax2">
+                                        <label for="fax1">Fax 1<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.fax1" class="form-control" type="text" name="fax1" id="fax1">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="phone2">Phone 2</label>
+                                        <input [(ngModel)]="company.phone2" class="form-control" type="text" name="phone2" id="phone2">
+                                    </div>
+                                    <div class="form-group local-forms">
+                                        <label for="workingTime">Working Time<span class="login-danger">*</span></label>
+                                        <input required [(ngModel)]="company.workingTime" class="form-control" type="number" name="workingTime" id="workingTime">
                                     </div>
                                     <div class="form-group local-forms">
                                         <label for="email">Email<span class="login-danger">*</span></label>
@@ -100,20 +119,16 @@
                                     </div>
                                     <div class="form-group local-forms">
                                         <label for="currency">Currency<span class="login-danger">*</span></label>
-                                        <mat-select required name="currency" id="currency" [(ngModel)]="company.currency" class="form-control select"
+                                        <mat-select require name="currency" id="currency" [(ngModel)]="company.currencyId" class="form-control select"
                                             placeholder="Select Currency">
-                                            <mat-option *ngFor="let currency of currencies" [value]="currency.id">
+                                            <mat-option *ngFor="let currency of lookupsLists['Currency']" [value]="currency.id">
                                                 {{currency.name}}
                                             </mat-option>
                                         </mat-select>
                                     </div>
                                     <div class="form-group local-forms">
                                         <label for="facebookLink">Facebook Link</label>
-                                        <input [(ngModel)]="company.facebookLink" class="form-control" type="text" name="facebookLink" id="facebookLink">
-                                    </div>
-                                    <div class="form-group local-forms">
-                                        <label for="linkedInLink">LinkedIn Link</label>
-                                        <input [(ngModel)]="company.linkedInLink" class="form-control" type="text" name="linkedInLink" id="linkedInLink">
+                                        <input [(ngModel)]="company.fb" class="form-control" type="text" name="facebookLink" id="facebookLink">
                                     </div>
                                 </div>
                                 <div class="col-12">

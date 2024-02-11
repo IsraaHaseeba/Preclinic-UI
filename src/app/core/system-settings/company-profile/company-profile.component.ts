@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { companyInfo } from 'src/app/shared/models/models';
+import { ToastrService } from 'ngx-toastr';
+import { DataService } from 'src/app/shared/data/data.service';
+import { companyDetails } from 'src/app/shared/models/models';
 import { routes } from 'src/app/shared/routes/routes';
 
 @Component({
@@ -9,15 +11,38 @@ import { routes } from 'src/app/shared/routes/routes';
   styleUrls: ['./company-profile.component.scss']
 })
 export class CompanyProfileComponent implements OnInit{
-  company: companyInfo = {}
+  company: companyDetails = {}
   routes = routes;
-  currencies: any[] = [{id: 1, name: 'USD'}, {id: 2, name: 'NIS'}]; // get from lookups
-  constructor() {
+  currencies: any[] = [];
+  locatio: any = {};
+  categoriesCodes = ['Currency'];
+  lookupsLists: any = {};
+
+  constructor(private dataService: DataService, private toast: ToastrService) {
 
   }
 
   ngOnInit(): void {
-    // fill company info
+    this.searchCompanyDetails();
+    this.searchLookups();
+  }
+
+  searchCompanyDetails() {
+    this.dataService.getCompanyDetails().subscribe(res => {
+      this.company = res;
+    })
+  }
+
+  searchLookups() {
+    this.categoriesCodes.forEach((code: any) => {
+      this.dataService.getLookupsByCategoryCode(code).subscribe((res) => {
+        this.lookupsLists[code] = res ?? [];
+      });
+    });
+  }
+
+  addUpdateCompanyDetails() {
+    return this.dataService.addUpdateCompanyDetails(this.company);
   }
 
   onSave(form: NgForm) {
@@ -25,8 +50,13 @@ export class CompanyProfileComponent implements OnInit{
       form.form.markAllAsTouched();
       return;
     }
-    //this.addEditUser();
+    this.addUpdateCompanyDetails().subscribe(
+      (res) => {
+        this.toast.success("Saved!")
+      }, 
+      (error) => {
+        this.toast.error("Failed!")
+      }
+    );
   }
-
-
 }

@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { routes } from '../routes/routes';
-import { map, Observable } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { apiResultFormat } from '../models/models';
+import { apiResultFormat, companyDetails } from '../models/models';
 
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
+  baseUrl: string = 'http://192.236.146.134:9000/';
+
   constructor(private http: HttpClient) {}
 
   public getDoctorsList(): Observable<apiResultFormat> {
@@ -24,6 +26,15 @@ export class DataService {
         return res;
       })
     );
+  }
+  public getLookupsByCategoryCode(code: string): Observable<any> {
+    return of(code == 'Currency' ? [{id: 1, name: 'USD'}, {id: 2, name: 'NIS'}] : [{id: 1, name: 'ramallah'}, {id: 2, name: 'nablus'}])
+  }
+  public getCompanyDetails(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}api/Account/CompanyDetails`);
+  }
+  public addUpdateCompanyDetails(company: companyDetails): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}api/Account/AddCompany`, company);
   }
   public getStaffList(): Observable<apiResultFormat> {
     return this.http.get<apiResultFormat>('assets/json/staff-list.json').pipe(
