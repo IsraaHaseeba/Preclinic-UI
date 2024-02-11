@@ -8,12 +8,14 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { routes } from '../routes/routes';
+import { AuthService } from '../auth/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private auth: AuthService, private toast: ToastrService) {}
   canActivate(
     
   ):
@@ -21,10 +23,11 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-      if (localStorage.getItem('authenticated')) {
+      if (this.auth.isLoggedIn()) {
         return true;
       } else {
         this.router.navigate([routes.login]);
+        this.toast.error('Wrong Credentials!');
         return false;
       }
   }

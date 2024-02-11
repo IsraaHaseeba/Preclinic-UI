@@ -14,6 +14,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
 import { MatTableModule } from '@angular/material/table';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+import { ToastrModule, provideToastr } from 'ngx-toastr';
 
 
 
@@ -51,7 +53,9 @@ import { MatTableModule } from '@angular/material/table';
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot(), 
+
     
   ],
   exports: [
@@ -70,7 +74,8 @@ import { MatTableModule } from '@angular/material/table';
     ReactiveFormsModule,
     FilterPipe,
     MatTableModule,
-    FormsModule
+    FormsModule,
+    ToastrModule
 
   ],
   providers: [

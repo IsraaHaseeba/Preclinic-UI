@@ -27,33 +27,28 @@
                 <!-- Form -->
                 <form [formGroup]="form" (ngSubmit)="loginFormSubmit()">
                   <div class="form-group">
-                    <label for="Email">Email <span class="login-danger">*</span></label>
+                    <label for="userName">Username <span class="login-danger">*</span></label>
                     <input
                       class="form-control"
-                      formControlName="email"
+                      formControlName="userName"
                       type="text"
                       [ngClass]="{
-                        'is-invalid': f['email'].touched && f['email'].invalid
+                        'is-invalid': f['userName'].touched && f['userName'].invalid
                       }"
                     />
                     <div
-                    *ngIf="f['email'].touched && f['email'].invalid"
+                    *ngIf="f['userName'].touched && f['userName'].invalid"
                     class="invalid-feedback"
                     >
                       <div
-                      *ngIf="f['email'].errors && f['email'].errors['required']"
+                      *ngIf="f['userName'].errors && f['userName'].errors['required']"
                       >
-                        Email is required.
-                      </div>
-                      <div
-                        *ngIf="f['email'].errors && f['email'].errors['email']"
-                      >
-                        Please, enter valid email address.
+                        Username is required.
                       </div>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="Password">Password <span class="login-danger">*</span></label>
+                    <label for="password">Password <span class="login-danger">*</span></label>
                     <input
                       class="form-control pass-input"
                       [type]="passwordClass ? 'text' : 'password'"

@@ -18,6 +18,7 @@ import { UserModule } from './core/system-settings/user/user.module';
     BrowserAnimationsModule,
     SharedModule,
     UserModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
